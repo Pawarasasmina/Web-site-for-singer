@@ -64,9 +64,9 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="mt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>© 2024 Dilu Beats. All rights reserved.</p>
+          <p>© 2025 Dilu Beats. All rights reserved.</p>
           <p>
-            Designed by <a href="#" className="hover:text-accent">SPS</a>.
+            Design and Development by <a href="https://www.neurioxit.systems/" className="hover:text-accent">neuriOx IT</a>.
           </p>
         </div>
       </div>

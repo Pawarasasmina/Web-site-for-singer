@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaMusic, FaHeadphones, FaGlobe, FaAward } from 'react-icons/fa';
-import audience from '../assets/audiance.jpg'; // Import the image
+import audience from '../assets/audiance.jpg';
 
 const About = () => {
   return (
@@ -8,7 +8,6 @@ const About = () => {
       name="about"
       className="w-full min-h-screen bg-gradient-to-b from-primary to-secondary py-20 relative overflow-hidden"
     >
-      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={audience}
@@ -19,7 +18,6 @@ const About = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Title and Intro */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,17 +25,14 @@ const About = () => {
           className="text-center pb-12"
         >
           <h2 className="text-6xl font-bold gradient-text mb-6">
-            About Me
+            About DILU Beats
           </h2>
           <p className="text-gray-300 text-lg font-semibold leading-relaxed max-w-2xl mx-auto">
-            Discover the heart and soul behind <span className="gradient-text">Dilu Beats</span>. 
-            Explore the journey, the sound, and the story that connects music to culture.
+            Meet <span className="gradient-text">DILU Beats</span> — a trailblazer in Sri Lanka’s music scene. Known for his mastery of blending Pop, Hip-hop, and R&B Classic, DILU Beats creates music that transcends boundaries and touches hearts.
           </p>
         </motion.div>
 
-        {/* Content Blocks */}
         <div className="grid md:grid-cols-2 gap-12 mt-12">
-          {/* Left Content: The Journey */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,26 +46,10 @@ const About = () => {
               <h3 className="text-3xl font-semibold">The Journey</h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              From humble beginnings in Sri Lanka to global recognition, my journey is a tale of passion and dedication. 
-              With over 5 years in music production, I’ve created a fusion of traditional Sri Lankan melodies 
-              and cutting-edge electronic beats that resonate worldwide.
+              Born as Ginthota Manawaduge Dileepa Madushan in Matara, Sri Lanka, DILU Beats began his musical journey with the single "Rathu Dethola." He rose to prominence with "Numba Ha," the most viewed Sinhala lyrics video on YouTube and the most streamed Sri Lankan track on Spotify in 2023.
             </p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="pt-4"
-            >
-              <a
-                href="#"
-                className="inline-block px-6 py-3 bg-gradient-to-r from-accent to-accent-light text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:opacity-90 transform transition-all duration-300"
-              >
-                Read My Story
-              </a>
-            </motion.div>
           </motion.div>
 
-          {/* Right Content: The Sound */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -84,27 +63,11 @@ const About = () => {
               <h3 className="text-3xl font-semibold">The Sound</h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Every beat I create tells a story, blending the vibrant essence of Sri Lankan culture with 
-              innovative electronic elements. My music connects generations, bridging traditional rhythms 
-              with modern creativity for a one-of-a-kind listening experience.
+              DILU Beats’ music bridges generations by fusing Sri Lankan culture with modern electronic sounds. His innovative tracks connect listeners worldwide, offering a unique auditory experience.
             </p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="pt-4"
-            >
-              <a
-                href="https://open.spotify.com/artist/01O8OueZDiqUJjOu7XPb4t"
-                className="inline-block px-6 py-3 bg-gradient-to-r from-accent to-accent-light text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:opacity-90 transform transition-all duration-300"
-              >
-                Listen to My Music
-              </a>
-            </motion.div>
           </motion.div>
         </div>
 
-        {/* Additional Achievements Section */}
         <div className="mt-20 grid md:grid-cols-3 gap-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -115,7 +78,7 @@ const About = () => {
             <FaGlobe className="text-4xl text-accent mb-4" />
             <h4 className="text-2xl font-bold">Global Reach</h4>
             <p className="text-gray-300 leading-relaxed">
-              My beats have reached listeners in over 20+ countries, connecting cultures through music.
+              Recognized in over 160+ countries, DILU Beats has connected cultures through music.
             </p>
           </motion.div>
           <motion.div
@@ -125,9 +88,9 @@ const About = () => {
             className="glass-effect p-6 rounded-lg text-center"
           >
             <FaAward className="text-4xl text-accent mb-4" />
-            <h4 className="text-2xl font-bold">Awards & Recognition</h4>
+            <h4 className="text-2xl font-bold">Awards & Achievements</h4>
             <p className="text-gray-300 leading-relaxed">
-              Winner of the Electronic Music Award 2023 for innovation in blending traditional and modern sounds.
+            Awarded the YouTube Creator Award for surpassing 100,000 subscribers.
             </p>
           </motion.div>
           <motion.div
@@ -139,7 +102,7 @@ const About = () => {
             <FaMusic className="text-4xl text-accent mb-4" />
             <h4 className="text-2xl font-bold">100+ Tracks</h4>
             <p className="text-gray-300 leading-relaxed">
-              Over 100 professionally crafted tracks available across platforms, each telling a unique story.
+              With over 100 professional tracks, each piece showcases the essence of innovation and cultural heritage.
             </p>
           </motion.div>
         </div>

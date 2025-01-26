@@ -1,25 +1,31 @@
 import { motion } from 'framer-motion';
 import { FaPaperPlane, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { useState } from 'react';
 import emailjs from 'emailjs-com'; // Import emailjs
 import logo from '../assets/logo.jpg'; // Import logo image
 
 const Contact = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
   // Function to handle form submission with EmailJS
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+        'service_iz8zkta', // Replace with your EmailJS Service ID
+        'template_a8saqoh', // Replace with your EmailJS Template ID
         e.target,
-        'YOUR_USER_ID' // Replace with your EmailJS User ID
+        'EKc3678tSlBIwABRF' // Replace with your EmailJS User ID
       )
       .then(
         (result) => {
-          alert('Message sent successfully!');
+          setModalMessage('Message sent successfully!');
+          setIsModalOpen(true);
         },
         (error) => {
-          alert('Failed to send message, please try again.');
+          setModalMessage('Failed to send message, please try again.');
+          setIsModalOpen(true);
         }
       );
     e.target.reset(); // Clear the form
@@ -53,8 +59,8 @@ const Contact = () => {
             <div className="flex items-center gap-2 text-gray-300">
               <FaPhoneAlt size={18} />
               <p>
-                <a href="tel:+9470704004" className="hover:underline">
-                  (+94) 70 70 4004
+                <a href="tel:+94707040004" className="hover:underline">
+                  (+94) 70 704 0004
                 </a>
               </p>
             </div>
@@ -115,6 +121,22 @@ const Contact = () => {
           </form>
         </motion.div>
       </div>
+
+      {/* Modal for Confirmation */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-sm mx-auto shadow-lg">
+            <h3 className="text-lg font-bold mb-4">Notification</h3>
+            <p className="text-gray-700 mb-6">{modalMessage}</p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="w-full py-2 bg-accent text-white rounded-lg hover:bg-accent-light transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

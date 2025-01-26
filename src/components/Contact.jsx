@@ -54,30 +54,41 @@ const Contact = () => {
         >
           {/* Contact Info with Logo */}
           <div className="bg-secondary p-4 rounded-xl shadow-lg space-y-4 flex flex-col items-center justify-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-            <img src={logo} alt="Dilu Beats Logo" className="w-20 h-20 object-contain mb-4" />
-            <h3 className="text-lg font-semibold text-accent">Dilu Beats Manager</h3>
-            <div className="flex items-center gap-2 text-gray-300">
-              <FaPhoneAlt size={18} />
-              <p>
-                <a href="tel:+94707040004" className="hover:underline">
-                  (+94) 70 704 0004
-                </a>
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-gray-300">
-              <FaEnvelope size={18} />
-              <p>
-                <a
-                  href="mailto:dilubeatss@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  dilubeatss@gmail.com
-                </a>
-              </p>
-            </div>
-          </div>
+  <img src={logo} alt="Dilu Beats Logo" className="w-20 h-20 object-contain mb-4" />
+  <h3 className="text-lg font-semibold text-accent">Dilu Beats Manager</h3>
+  <div className="flex flex-col items-center text-gray-300 space-y-1">
+    <div className="flex items-center gap-2">
+      <FaPhoneAlt size={18} />
+      <p>
+        <a href="tel:+94707040004" className="hover:underline">
+          (+94) 70 704 0004
+        </a>
+      </p>
+    </div>
+    <div className="flex items-center gap-2">
+      <FaPhoneAlt size={18} />
+      <p>
+        <a href="tel:+94772172050" className="hover:underline">
+          (+94) 77 217 2050
+        </a>
+      </p>
+    </div>
+  </div>
+  <div className="flex items-center gap-2 text-gray-300">
+    <FaEnvelope size={18} />
+    <p>
+      <a
+        href="mailto:dilubeatss@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        dilubeatss@gmail.com
+      </a>
+    </p>
+  </div>
+</div>
+
 
           {/* Contact Form */}
           <form onSubmit={sendEmail} className="space-y-4 bg-secondary p-4 rounded-xl shadow-lg">

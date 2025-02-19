@@ -1,10 +1,24 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import cover from '../assets/cover.jpg';
 import cover2 from '../assets/mobilecover.jpg';  // Import the second image
 import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
+import bgmusic from '../assets/numbawa-soya.mp3';
 
 const Hero = () => {
+  useEffect(() => {
+    const audio = new Audio(bgmusic);
+    audio.volume = 0.5; // Set volume (optional)
+    audio.loop = true; // Loop the audio
+    audio.play().catch((error) => console.log("Autoplay blocked:", error)); // Handle autoplay restrictions
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0; // Reset when unmounting
+    };
+  }, []);
+
   return (
     <div
       name="home"

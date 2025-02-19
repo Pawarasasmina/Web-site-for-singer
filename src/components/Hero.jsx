@@ -1,23 +1,44 @@
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import cover from '../assets/cover.jpg';
 import cover2 from '../assets/mobilecover.jpg';  // Import the second image
-import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaYoutube, FaFacebook, FaInstagram, FaVolumeUp, FaVolumeMute  } from 'react-icons/fa';
 import bgmusic from '../assets/numbawa-soya.mp3';
 
 const Hero = () => {
+  const [audio] = useState(new Audio(bgmusic));
+  const [isMuted, setIsMuted] = useState(false);
+
   useEffect(() => {
-    const audio = new Audio(bgmusic);
-    audio.volume = 0.5; // Set volume (optional)
-    audio.loop = true; // Loop the audio
-    audio.play().catch((error) => console.log("Autoplay blocked:", error)); // Handle autoplay restrictions
+    audio.volume = 0.5; // Set initial volume
+    audio.loop = true; // Enable looping
+
+    const playAudio = async () => {
+      try {
+        await audio.play();
+      } catch (error) {
+        console.log("Autoplay blocked:", error);
+      }
+    };
+
+    playAudio();
 
     return () => {
       audio.pause();
-      audio.currentTime = 0; // Reset when unmounting
+      audio.currentTime = 0;
     };
-  }, []);
+  }, [audio]);
+
+  const toggleMute = () => {
+    if (isMuted) {
+      audio.muted = false;
+      setIsMuted(false);
+    } else {
+      audio.muted = true;
+      setIsMuted(true);
+    }
+  };
 
   return (
     <div
@@ -101,9 +122,13 @@ const Hero = () => {
             </Link>
           </motion.div>
         </motion.div>
+        <button
+        onClick={toggleMute}
+        className="absolute bottom-6 right-6 p-3 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-80 transition-all"
+      >
+        {isMuted ? <FaVolumeMute size={24} /> : <FaVolumeUp size={24} />}
+      </button>
 
-        {/* Social Media Links */}
-      {/* Social Media Links */}
 {/* Social Media Links */}
 <motion.div
   initial="hidden"

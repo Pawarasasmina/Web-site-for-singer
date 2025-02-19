@@ -114,12 +114,20 @@ const Hero = () => {
             </Link>
           </motion.div>
         </motion.div>
-        <button
+          <motion.button
         onClick={toggleAudio}
-        className="absolute bottom-6 right-6 p-3 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-80 transition-all"
+        className="absolute bottom-6 right-6 p-4 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-80 transition-all"
+        animate={{
+          scale: [1, 1.5, 1], // Scale animation (larger and smaller)
+        }}
+        transition={{
+          duration: 1, // Animation duration
+          repeat: Infinity, // Repeat infinitely
+          ease: "easeInOut", // Smooth transition
+        }}
       >
-        {isPlaying ? <FaVolumeUp size={24} /> : <FaPlay size={24} />}
-      </button>
+        {isPlaying ? <FaVolumeUp size={28} /> : <FaPlay size={28} />}
+      </motion.button>
 {/* Social Media Links */}
 <motion.div
   initial="hidden"

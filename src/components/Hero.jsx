@@ -118,7 +118,7 @@ const Hero = () => {
         onClick={toggleAudio}
         className="absolute bottom-6 right-6 p-4 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-80 transition-all"
         animate={{
-          scale: [1, 1.5, 1], // Scale animation (larger and smaller)
+          scale: [0.6, 1.2, 0.6], // Scale animation (larger and smaller)
         }}
         transition={{
           duration: 1, // Animation duration

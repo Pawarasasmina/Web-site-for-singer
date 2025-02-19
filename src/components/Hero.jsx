@@ -3,43 +3,35 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import cover from '../assets/cover.jpg';
 import cover2 from '../assets/mobilecover.jpg';  // Import the second image
-import { FaYoutube, FaFacebook, FaInstagram, FaVolumeUp, FaVolumeMute  } from 'react-icons/fa';
+import { FaYoutube, FaFacebook, FaInstagram, FaVolumeUp, FaVolumeMute ,FaPlay } from 'react-icons/fa';
 import bgmusic from '../assets/numbawa-soya.mp3';
 
 const Hero = () => {
   const [audio] = useState(new Audio(bgmusic));
-  const [isMuted, setIsMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    audio.volume = 0.5; // Set initial volume
     audio.loop = true; // Enable looping
-
-    const playAudio = async () => {
-      try {
-        await audio.play();
-      } catch (error) {
-        console.log("Autoplay blocked:", error);
-      }
-    };
-
-    playAudio();
-
+    audio.volume = 0.5; // Set initial volume
     return () => {
       audio.pause();
       audio.currentTime = 0;
     };
   }, [audio]);
 
-  const toggleMute = () => {
-    if (isMuted) {
-      audio.muted = false;
-      setIsMuted(false);
+  const toggleAudio = async () => {
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
     } else {
-      audio.muted = true;
-      setIsMuted(true);
+      try {
+        await audio.play(); // Try to play
+        setIsPlaying(true);
+      } catch (error) {
+        console.error("Playback failed:", error);
+      }
     }
   };
-
   return (
     <div
       name="home"
@@ -123,12 +115,11 @@ const Hero = () => {
           </motion.div>
         </motion.div>
         <button
-        onClick={toggleMute}
+        onClick={toggleAudio}
         className="absolute bottom-6 right-6 p-3 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-80 transition-all"
       >
-        {isMuted ? <FaVolumeMute size={24} /> : <FaVolumeUp size={24} />}
+        {isPlaying ? <FaVolumeUp size={24} /> : <FaPlay size={24} />}
       </button>
-
 {/* Social Media Links */}
 <motion.div
   initial="hidden"
